@@ -111,9 +111,7 @@ const createGroupChat = asyncHandler(async (req, res) => {
   }
 });
 
-// @desc    Rename Group
-// @route   PUT /api/chat/rename
-// @access  Protected
+
 const renameGroup = asyncHandler(async (req, res) => {
   const { chatId, chatName } = req.body;
 
@@ -137,9 +135,7 @@ const renameGroup = asyncHandler(async (req, res) => {
   }
 });
 
-// @desc    Remove user from Group
-// @route   PUT /api/chat/groupremove
-// @access  Protected
+
 const removeFromGroup = asyncHandler(async (req, res) => {
   const { chatId, userId } = req.body;
 
@@ -165,13 +161,10 @@ const removeFromGroup = asyncHandler(async (req, res) => {
   }
 });
 
-// @desc    Add user to Group / Leave
-// @route   PUT /api/chat/groupadd
-// @access  Protected
+
 const addToGroup = asyncHandler(async (req, res) => {
   const { chatId, userId } = req.body;
 
-  // check if the requester is admin
 
   const added = await Chat.findByIdAndUpdate(
     chatId,
